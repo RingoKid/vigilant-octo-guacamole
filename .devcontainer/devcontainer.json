@@ -54,9 +54,7 @@
         "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}",
         // Add other API keys or environment variables here
         // "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}",
-        "LINKEDIN_USERNAME": "${rifatnaimulislam@gmail.com}",
-        "LINKEDIN_PASSWORD": "${git@hub1}"
-    },
+    }
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     // For AI dev, sticking with 'vscode' user (the default for dev containers) is usually fine and safer.
     // "remoteUser": "root"

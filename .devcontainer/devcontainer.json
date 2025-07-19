@@ -20,7 +20,8 @@
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
     // This is CRUCIAL for installing your Python libraries from requirements.txt
-    "postCreateCommand": "pip install --no-cache-dir -r requirements.txt && sudo playwright install-deps chromium && playwright install chromium",
+    // "postCreateCommand": "pip install --no-cache-dir -r requirements.txt && npm install --save-dev @playwright/test@latest && npx playwright install --with-deps",
+    "postCreateCommand": "pip install --no-cache-dir -r requirements.txt && playwright install && playwright install-deps",
     "customizations": {
         "vscode": {
             "extensions": [

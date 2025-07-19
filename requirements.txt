@@ -1,0 +1,43 @@
+# Core library for interacting with the Gemini API
+google-genai
+streamlit
+langchain[google-genai]
+langchain-community
+langchain-core
+beautifulsoup4
+playwright
+unstructured
+# Recommended for loading environment variables (like API keys) during local development
+# The Dev Container setup can also pull from your local system's env vars,
+# but this is useful if you ever run the script outside the container or for local testing.
+python-dotenv
+
+# --- Common AI/ML Libraries (Uncomment and add as needed) ---
+# Uncomment any of these lines if your AI agent will use them.
+# For example, if you plan to use LangChain, uncomment the 'langchain' line.
+
+# For building LLM applications
+# langchain
+# pydantic # Often a dependency of langchain, good to include if you use structured outputs
+
+
+# For deep learning frameworks (choose one or both if needed)
+# torch # PyTorch, often with torchvision, torchaudio
+# tensorflow # TensorFlow, often with tensorflow-cpu or tensorflow-gpu
+
+# For vector databases/similarity search (choose based on your vector store)
+# chromadb
+# faiss-cpu
+# qdrant-client
+# pinecone-client
+
+# For web frameworks (if your agent has a web UI or API)
+# fastapi
+# uvicorn # ASGI server for FastAPI
+# flask
+# streamlit
+# gradio
+
+# For code formatting (if you enabled it in devcontainer.json)
+# black
+# ruff

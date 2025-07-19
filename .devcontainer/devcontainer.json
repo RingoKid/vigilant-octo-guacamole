@@ -1,0 +1,61 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+    "name": "AI Agent Development (Python)", // More descriptive name
+    "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye", // Keep your chosen Python image
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        // This feature installs Node.js (via nvm), yarn, and pnpm.
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "22" // Installs Node.js v22 (latest LTS, which is >= 18)
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+    ],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // Example: If your agent runs on port 8000
+    "forwardPorts": [
+        8501
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // This is CRUCIAL for installing your Python libraries from requirements.txt
+    // "postCreateCommand": "pip install --no-cache-dir -r requirements.txt && npm install --save-dev @playwright/test@latest && npx playwright install --with-deps",
+    "postCreateCommand": "pip install --no-cache-dir -r requirements.txt && playwright install && playwright install-deps",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python", // The core Python extension
+                "ms-python.vscode-pylance", // Pylance for intelligent code completion and linting
+                "ms-vscode.vscode-docker", // Helps manage Docker from within VS Code
+                "ms-toolsai.jupyter", // Excellent for AI/ML development with Jupyter notebooks
+                "GitHub.copilot", // Uncomment if you have Copilot
+                // "mechatroner.rainbow-csv" // Handy for viewing CSV data
+            ],
+            "settings": {
+                // Ensure VS Code knows the correct Python interpreter path inside the container
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                // Deactivate default environment activation, as Dev Containers handles it
+                "python.terminal.activateEnvironment": false,
+                // Optional: Adjust how much linting/type checking Pylance does (default is fine for most)
+                "python.analysis.typeCheckingMode": "basic",
+                // Optional: Set default formatter (black, ruff, etc.)
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true
+            }
+        }
+    },
+    // Add environment variables directly to the container's environment.
+    // This is the best place to inject your API keys securely.
+    "remoteEnv": {
+        // This pulls the GEMINI_API_KEY from your local macOS environment variables
+        // Make sure you've set it in your ~/.zshrc or ~/.bash_profile as:
+        // export GEMINI_API_KEY="YOUR_ACTUAL_API_KEY_HERE"
+        "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}",
+        // Add other API keys or environment variables here
+        // "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}",
+    }
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // For AI dev, sticking with 'vscode' user (the default for dev containers) is usually fine and safer.
+    // "remoteUser": "root"
+}

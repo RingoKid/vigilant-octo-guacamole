@@ -1,0 +1,20 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Streamlit App", // A descriptive name for the dropdown.
+            "type": "debugpy", // The type of debugger to use.
+            "request": "launch", // We want to launch a new process.
+            // Instead of running a 'program', we run a module.
+            "module": "streamlit",
+            // These are the arguments passed to 'streamlit'.
+            "args": [
+                "run",
+                "${workspaceFolder}/resume-optimizer/app.py"
+            ]
+        }
+    ]
+}

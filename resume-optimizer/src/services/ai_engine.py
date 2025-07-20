@@ -2,22 +2,21 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from langchain.chains import LLMChain
+from .prompts import KEYWORD_EXTRACTION_PROMPT
 
 
 class AIEngine:
     """
     A class to interact with a generative AI model for text analysis.
 
-    This engine is designed to connect to the Google Gemini Pro model,
-    send it a job description, and extract a list of relevant keywords.
+    This engine is designed to connect to the Google Gemini Pro model.
     """
 
     def __init__(self):
         """
-        Initializes the AIEngine, setting up the model, prompt, and chain.
+        Initializes the AIEngine, setting up the model only.
 
-        It configures the connection to the Google Gemini Pro model and
-        prepares the prompt template needed for keyword extraction.
+        It configures the connection to the Google Gemini Pro model.
         """
         # Ensure the GEMINI_API_KEY is set in the environment
         if "GEMINI_API_KEY" not in os.environ:
@@ -26,39 +25,15 @@ class AIEngine:
         # 1. Initialize the Google Gemini Pro language model
         # We set a low temperature to get more predictable and focused results.
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-pro", temperature=0.2, google_api_key=os.getenv("GEMINI_API_KEY"))
+            model="gemini-2.5-flash", temperature=0.2, google_api_key=os.getenv("GEMINI_API_KEY"))
 
-        # 2. Define the prompt template
-        # This template guides the AI to perform the specific task of
-        # identifying keywords from a job description.
-        prompt_template = """
-        You are an expert at analyzing job descriptions. Your task is to identify the most important keywords from the text provided.
-        These keywords should represent the core skills, technologies, and responsibilities.
-
-        Please return the keywords as a single, comma-separated string.
-
-        Job Description:
-        {text}
-
-        Keywords:
-        """
-
-        # 3. Create a PromptTemplate object from the string
-        self.prompt = PromptTemplate(
-            template=prompt_template,
-            input_variables=["text"]
-        )
-
-        # 4. Create the LangChain chain
-        # The chain links the language model and the prompt together.
-        self.chain = LLMChain(llm=self.llm, prompt=self.prompt)
-
-    def get_keywords(self, text: str) -> list[str]:
+    def get_keywords(self, text: str, prompt: str | None = None) -> list[str]:
         """
         Analyzes a job description to extract key skills, technologies, and responsibilities.
 
         Args:
             text: A string containing the job description.
+            prompt: Optional custom prompt string. If not provided, uses the default keyword extraction prompt.
 
         Returns:
             A list of strings, where each string is a cleaned keyword.
@@ -68,10 +43,18 @@ class AIEngine:
             print("Warning: Input text is empty. Returning an empty list.")
             return []
 
+        prompt_template = prompt or KEYWORD_EXTRACTION_PROMPT
+
+        chain = LLMChain(
+            llm=self.llm,
+            prompt=PromptTemplate(template=prompt_template,
+                                  input_variables=["text"])
+        )
+
         try:
             # Invoke the chain with the provided text
             # The chain will format the prompt, send it to the model, and get the response.
-            response = self.chain.invoke({"text": text})
+            response = chain.invoke({"text": text})
 
             # The actual output is in the 'text' key of the response dictionary
             if response and 'text' in response:

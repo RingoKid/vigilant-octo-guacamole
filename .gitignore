@@ -62,6 +62,7 @@ venv.bak/
 # IDE / Editor specific
 .idea/
 .vscode/
+.DS_Store
 
 # Dependencies
 /node_modules

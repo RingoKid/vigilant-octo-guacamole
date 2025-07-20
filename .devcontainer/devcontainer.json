@@ -51,7 +51,7 @@
         // This pulls the GEMINI_API_KEY from your local macOS environment variables
         // Make sure you've set it in your ~/.zshrc or ~/.bash_profile as:
         // export GEMINI_API_KEY="YOUR_ACTUAL_API_KEY_HERE"
-        "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}",
+        "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}"
         // Add other API keys or environment variables here
         // "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}",
     }

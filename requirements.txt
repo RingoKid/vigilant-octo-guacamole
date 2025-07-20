@@ -1,16 +1,16 @@
 # Core library for interacting with the Gemini API
-google-genai
-streamlit
-langchain[google-genai]
-langchain-community
-langchain-core
-beautifulsoup4
-playwright
-unstructured
+google-genai==1.26.0
+streamlit==1.47.0
+langchain[google-genai]==0.3.26
+langchain-community==0.3.27
+langchain-core==0.3.69
+beautifulsoup4==4.13.4
+playwright==1.53.0
+unstructured==0.18.9
 # Recommended for loading environment variables (like API keys) during local development
 # The Dev Container setup can also pull from your local system's env vars,
 # but this is useful if you ever run the script outside the container or for local testing.
-python-dotenv
+python-dotenv==1.1.1
 
 # --- Common AI/ML Libraries (Uncomment and add as needed) ---
 # Uncomment any of these lines if your AI agent will use them.

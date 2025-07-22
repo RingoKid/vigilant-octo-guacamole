@@ -53,7 +53,7 @@ class AIEngine:
 
         try:
             # Invoke the chain with the provided text
-            # The chain will format the prompt, send it to the model, and get the response.
+            # The chain will format the prompt, send it to the model,   and get the response.
             response = chain.invoke({"text": text})
 
             # The actual output is in the 'text' key of the response dictionary

@@ -11,8 +11,7 @@ production environments.
 WORK EXPERIENCE
 Liberty Mutual Group Oct 2022 – Dec 2024**
 _Software Development Engineer Bangkok, Thailand_
-▪ Diagnosed and resolved 200+ production issues in Spring Boot microservices by analyzing logs, system metrics, and code
-paths, enhancing reliability and operational excellence of existing systems and reducing incident response time by 40%
+▪ Diagnosed and resolved 200+ production issues in Spring Boot microservices by analyzing logs, system metrics, and code paths, enhancing reliability and operational excellence of existing systems and reducing incident response time by 40%
 ▪ Performed root-cause analysis to identify and resolve recurring production issues, refactoring critical code sections and
 documenting solutions to prevent future incidents, demonstrating expertise in operational excellence and system reliability
 ▪ Improved report-generation capacity by optimizing logic and memory usage, demonstrating strong scaling solutions and

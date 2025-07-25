@@ -19,17 +19,17 @@ class OptimizedResumeContent(BaseModel):
     This model is designed to be used with LangChain's JsonOutputParser.
     """
     updated_summary: str = Field(
-        description="A rewritten professional summary optimized for keywords, maximum 450 characters."
+        description="A rewritten professional summary optimized for keywords, maximum 350 characters."
     )
 
     liberty_mutual_group: List[str] = Field(
         default_factory=list,
-        description="Exactly 3 rewritten bullet points for Liberty Mutual Group experience, each maximum 140 characters."
+        description="Exactly 3 rewritten bullet points for Liberty Mutual Group experience, each maximum 230 characters."
     )
 
     inovace_technologies: List[str] = Field(
         default_factory=list,
-        description="Exactly 3 rewritten bullet points for Inovace Technologies experience, each maximum 140 characters."
+        description="Exactly 3 rewritten bullet points for Inovace Technologies experience, each maximum 230 characters."
     )
 
     spider_digital_commerce: List[str] = Field(
@@ -45,23 +45,23 @@ class OptimizedResumeContent(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "updated_summary": "Experienced Software Engineer with expertise in...",
+                "updated_summary": "Experienced Software Engineer with expertise in full-stack development, cloud architecture, and machine learning. Proven track record of delivering scalable solutions using Python, AWS, and modern frameworks. Strong background in API development, microservices, and data optimization.",
                 "liberty_mutual_group": [
-                    "Led development of cloud-native applications using Python and AWS...",
-                    "Implemented CI/CD pipelines reducing deployment time by 40%...",
-                    "Optimized database queries resulting in 30% improved application performance..."
+                    "Led development of cloud-native applications using Python, AWS Lambda, and DynamoDB, serving 50K+ daily users with 99.9% uptime while implementing automated testing and monitoring solutions that reduced incident response time by 60%",
+                    "Implemented comprehensive CI/CD pipelines using Jenkins, Docker, and Kubernetes, reducing deployment time by 40% and establishing automated quality gates that decreased production bugs by 35% through rigorous testing protocols",
+                    "Optimized database queries and implemented caching strategies using Redis and ElasticSearch, resulting in 30% improved application performance and 25% reduction in infrastructure costs while maintaining data integrity"
                 ],
                 "inovace_technologies": [
-                    "Developed RESTful APIs using Flask and SQLAlchemy serving 10K+ daily users...",
-                    "Architected microservices infrastructure with Docker and Kubernetes...",
-                    "Implemented OAuth 2.0 and JWT authentication enhancing system security..."
+                    "Developed scalable RESTful APIs using Flask, SQLAlchemy, and PostgreSQL serving 10K+ daily users with sub-200ms response times, implementing comprehensive error handling, logging, and monitoring solutions for production reliability",
+                    "Architected microservices infrastructure with Docker and Kubernetes on AWS EKS, enabling horizontal scaling and fault tolerance while reducing system complexity and improving deployment efficiency by 45% across development teams",
+                    "Implemented OAuth 2.0 and JWT authentication with role-based access control, enhancing system security and user management capabilities while ensuring GDPR compliance and establishing audit trails for security monitoring"
                 ],
                 "spider_digital_commerce": [
-                    "Designed responsive web interfaces using React.js and Material UI..."
+                    "Designed responsive web interfaces using React.js and Material UI for e-commerce platform, improving user experience and conversion rates by 20% through intuitive design and performance optimization"
                 ],
                 "echo_project": [
-                    "Built voice-enabled assistant with NLP capabilities using Python and TensorFlow...",
-                    "Implemented WebSocket for real-time communication between client and server..."
+                    "Built voice-enabled assistant with natural language processing capabilities using Python, TensorFlow, and speech recognition APIs, achieving 95% accuracy in voice command interpretation and user intent classification",
+                    "Implemented real-time WebSocket communication between client and server components, enabling instant voice feedback and seamless user interactions with sub-100ms latency for enhanced user experience"
                 ]
             }
         }

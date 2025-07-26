@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>$NAME - Resume</title>
+    <style>
+        body {
+            font-family: 'Garamond', 'EB Garamond', 'Times New Roman', Times, serif;
+            /* Garamond font family */
+            line-height: 1.2;
+            /* Much tighter spacing like the original */
+            color: #000;
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #fff;
+            font-size: 11pt;
+            /* Base font size matching PDF */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .container {
+            max-width: 8.5in;
+            margin: 0 !important;
+            /* Force no margins */
+            padding: 0.15in 0.3in 0.05in 0.3in;
+            /* Increased top margin from 0.05in to 0.15in */
+            background-color: #fff;
+            min-height: 11in;
+            /* Full page height */
+        }
+
+        h1 {
+            font-size: 18pt;
+            /* Slightly smaller name to save space */
+            margin-bottom: 0;
+            margin-top: 0;
+            font-weight: bold;
+            text-align: left;
+            /* Left aligned name */
+        }
+
+        h2 {
+            font-size: 11pt;
+            /* Smaller section headers */
+            border-bottom: 1px solid #000;
+            padding-bottom: 1px;
+            margin-top: 30pt !important;
+            /* Half of the previous large space before sections */
+            margin-bottom: 8pt;
+            /* More space below headers */
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-size: 10pt;
+            /* Smaller company names */
+            margin-bottom: 0;
+            margin-top: 3pt;
+            /* Reduced top margin */
+            font-weight: bold;
+            display: inline;
+            /* Company names inline with dates */
+        }
+
+        .header {
+            text-align: left;
+            /* Left aligned contact info */
+            margin-bottom: 24pt;
+            /* Much more space after header before Summary */
+            font-size: 10pt;
+            /* Smaller contact info */
+            line-height: 1.2;
+            border-bottom: 1px solid #000;
+            /* Underline after contact info */
+            padding-bottom: 5pt;
+            /* More space before underline */
+        }
+
+        .contact-line {
+            margin: 1pt 0;
+            /* Tighter contact line spacing */
+        }
+
+        .section-item {
+            margin-bottom: 6pt;
+            /* More spacing between jobs */
+            margin-top: 8pt;
+            /* Space before each job experience */
+            page-break-inside: avoid;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0;
+        }
+
+        .job-title {
+            font-weight: normal;
+            font-style: italic;
+            font-size: 10pt;
+            /* Smaller job titles */
+            margin-left: 0;
+        }
+
+        .right-align {
+            text-align: right;
+            font-size: 10pt;
+            /* Smaller dates/locations */
+            color: #000;
+            font-weight: normal;
+            font-style: italic;
+            /* Make locations italic */
+        }
+
+        ul {
+            padding-left: 25pt !important;
+            /* Half of the previous large indentation */
+            margin-top: 2pt;
+            /* Reduced top margin */
+            margin-bottom: 3pt;
+            /* Reduced bottom margin */
+            list-style-type: square;
+            margin-left: 0;
+            /* Remove extra margin to fix alignment */
+        }
+
+        li {
+            margin-bottom: 2pt;
+            /* A bit more space between bullets */
+            font-size: 10pt;
+            /* Smaller bullet text */
+            line-height: 1.15;
+            /* Slightly more line height for readability */
+            text-align: left;
+            /* Left align bullet text */
+            padding-left: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 4pt;
+            /* Slightly more margin */
+            font-size: 10pt;
+            /* Smaller text */
+            text-align: left;
+            /* Left align paragraphs */
+            line-height: 1.15;
+            /* Slightly more line height for readability */
+        }
+
+        .tech-stack {
+            margin-top: 2pt;
+            /* Reduced margin */
+            margin-bottom: 3pt;
+            /* Reduced margin */
+            font-style: italic;
+            font-size: 10pt;
+            /* Smaller tech stack text */
+        }
+
+        .skills-section {
+            margin-top: 3pt;
+            /* Reduced margin */
+        }
+
+        .skills-category {
+            margin-bottom: 2pt;
+            /* Tighter skills spacing */
+            font-size: 10pt;
+            /* Smaller skills text */
+            line-height: 1.1;
+        }
+
+        .education-item {
+            margin-bottom: 3pt;
+            /* A bit more education spacing */
+        }
+
+        .degree-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .project-title {
+            font-weight: bold;
+            font-size: 10pt;
+            /* Smaller project title */
+            margin-bottom: 0;
+            margin-top: 3pt;
+            /* Reduced margin */
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Print optimization */
+        @media print {
+            * {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            html,
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .container {
+                margin: 0 !important;
+                padding: 0.1in 0.25in !important;
+                /* Increased top margin for print from 0.05in to 0.1in */
+                box-shadow: none;
+                border: none;
+            }
+
+            @page {
+                margin: 0.2in;
+                /* Control page margins directly */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>$NAME</h1>
+        <div class="header">
+            <div class="contact-line">$EMAIL ❖ $PHONE ❖ $LOCATION ❖ <a
+                    href="https://linkedin.com/in/ringokid/">LinkedIn</a> ❖ <a
+                    href="https://github.com/RingoKid/">GitHub</a></div>
+        </div>
+
+        <h2>Summary</h2>
+        <p>$SUMMARY_TEXT</p>
+
+        <h2>Work Experience</h2>
+
+        <div class="section-item">
+            <div class="job-header">
+                <div>
+                    <h3>Liberty Mutual Group</h3>
+                    <div class="job-title">Software Development Engineer</div>
+                </div>
+                <div class="right-align">
+                    <div>$LIBERTY_MUTUAL_DATES</div>
+                    <div>$LIBERTY_MUTUAL_LOCATION</div>
+                </div>
+            </div>
+            <ul>
+                $LIBERTY_MUTUAL_BULLETS
+                <li><strong>Tech Stack:</strong> $LIBERTY_MUTUAL_TECH_STACK</li>
+            </ul>
+        </div>
+
+        <div class="section-item">
+            <div class="job-header">
+                <div>
+                    <h3>Inovace Technologies</h3>
+                    <div class="job-title">Jr. Software Engineer</div>
+                </div>
+                <div class="right-align">
+                    <div>$INOVACE_DATES</div>
+                    <div>$INOVACE_LOCATION</div>
+                </div>
+            </div>
+            <ul>
+                $INOVACE_BULLETS
+                <li><strong>Tech Stack:</strong> $INOVACE_TECH_STACK</li>
+            </ul>
+        </div>
+
+        <div class="section-item">
+            <div class="job-header">
+                <div>
+                    <h3>Spider Digital Commerce</h3>
+                    <div class="job-title">Software Developer Intern</div>
+                </div>
+                <div class="right-align">
+                    <div>$SPIDER_DATES</div>
+                    <div>$SPIDER_LOCATION</div>
+                </div>
+            </div>
+            <ul>
+                $SPIDER_BULLETS
+                <li><strong>Tech Stack:</strong> $SPIDER_TECH_STACK</li>
+            </ul>
+        </div>
+
+        <h2>Projects</h2>
+        <div class="project-title">ECHO (Educational Charitable and Humanitarian Organization)</div>
+        <ul>
+            $ECHO_BULLETS
+        </ul>
+
+        <h2>Education</h2>
+        <div class="education-item">
+            <div class="degree-info">
+                <div>
+                    <h3>Georgia State University</h3>
+                    <div>MS, Computer Science</div>
+                </div>
+                <div class="right-align">
+                    <div>$GSU_DATES</div>
+                    <div>$GSU_LOCATION</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="education-item">
+            <div class="degree-info">
+                <div>
+                    <h3>North South University</h3>
+                    <div>BS, Computer Science</div>
+                </div>
+                <div class="right-align">
+                    <div>$NSU_DATES</div>
+                    <div>$NSU_LOCATION</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Skills</h2>
+        <div class="skills-section">
+            <div class="skills-category">
+                <strong>Languages:</strong> $SKILLS_LANGUAGES
+            </div>
+            <div class="skills-category">
+                <strong>Frameworks/Tools:</strong> $SKILLS_FRAMEWORKS
+            </div>
+            <div class="skills-category">
+                <strong>Databases:</strong> $SKILLS_DATABASES
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

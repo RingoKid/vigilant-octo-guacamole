@@ -1,32 +1,46 @@
-# app.py
+"""
+Refactored Resume Optimizer Streamlit App
 
+This is the main entry point for the resume optimization application.
+The app has been modularized for better maintainability and organization.
+"""
 import streamlit as st
-from src.services.web_scraper import WebScraper
 
-# --- Streamlit UI ---
-
-st.title("📄 Web Scraper for Job Postings")
-st.info("Enter the URL of a job posting to extract its text content. Note that scraping can take a few moments.")
-
-# Use caching to keep a single instance of the scraper
-
-
-@st.cache_resource
-def get_scraper():
-    return WebScraper()
+# Import UI modules
+from src.ui.job_analyzer import render_job_analyzer, get_keywords_for_rewrite
+from src.ui.resume_optimizer import render_resume_optimizer, render_custom_keywords_section, render_example_section
+from src.ui.resume_generation import render_resume_generation_section
+from src.ui.file_management import render_saved_files_section
+from src.app_utils import initialize_app, initialize_all_session_state
 
 
-scraper = get_scraper()
+def main():
+    """Main application entry point"""
+    # Initialize the app
+    initialize_app()
 
-# Create the UI elements
-url = st.text_input("Enter Job Post URL:",
-                    placeholder="https://example.com/job/123")
+    # Initialize all session state variables
+    initialize_all_session_state()
 
-if st.button("Scrape and Extract Text"):
-    if url:
-        with st.spinner("Scraping in progress... Please wait."):
-            extracted_text = scraper.scrape_text_from_url(url)
-            st.subheader("✅ Extracted Text")
-            st.text_area("Scraped Content", extracted_text, height=400)
-    else:
-        st.warning("Please enter a URL first.")
+    # Render main sections
+    render_job_analyzer()
+
+    # Get keywords for rewrite if available
+    keywords_for_rewrite = get_keywords_for_rewrite()
+    render_resume_optimizer(keywords_for_rewrite)
+
+    # Resume generation section
+    render_resume_generation_section()
+
+    # Custom keywords section
+    render_custom_keywords_section()
+
+    # Example section
+    render_example_section()
+
+    # Saved files management
+    render_saved_files_section()
+
+
+if __name__ == "__main__":
+    main()

@@ -65,3 +65,6 @@ venv.bak/
 
 # Dependencies
 /node_modules
+
+# Resume optimizer outputs
+resume-optimizer/outputs/

@@ -7,6 +7,12 @@ langchain-core
 beautifulsoup4
 playwright
 unstructured
+# PDF generation and diff viewing
+reportlab
+markdown
+weasyprint
+difflib
+streamlit-ace
 # Recommended for loading environment variables (like API keys) during local development
 # The Dev Container setup can also pull from your local system's env vars,
 # but this is useful if you ever run the script outside the container or for local testing.

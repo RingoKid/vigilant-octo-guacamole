@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "type": "job_analysis",
+    "unique_id": "550261b4",
+    "timestamp": "2025-07-26T04:19:04.886742",
+    "generated_at": "2025-07-26 04:19:04",
+    "filename": "job_analysis_20250726_041904_550261b4.json"
+  },
+  "input": {
+    "job_description": "About the job\nResponsibilities\n\nKforce has an enterprise client seeking a Software Dev Engineer III in Sunnyvale, CA. Overview: We are looking for a SDE for a large, strategic cross-org multi-year program to deliver on Operational and compliance improvements on our Tier 1 services powering Benefits, On-boarding capability. In this dynamic role you will have the opportunity to broadly understand all moving pieces within Music and how a customer's identity (account and/or profile) affects their Music experience which ultimately leads to long-term retention outcome. You would be the advocate for our core services and work across multiple Music teams, Alexa Music, Kids and Identity. Responsibilities include but not limited to:\n\n Developing Software projects, updating/enhancing our current software, automation of support processes and documentation of our systems\n End to End Development - writing, testing and ensuring deployment of codes\n\nRequirements\n\n Needs to be very strong in Java and MySQL\n Back End Engineer with IOS and Android experience highly desired\n Previous experience highly desired for faster ramp up\n The ideal candidate is interested in and skilled in software development and is looking to utilize and expand their coding skills and gain exposure to a wide variety of software applications\n The candidate should be knowledgeable and deeply skilled in building and working on large distributed systems\n They must be detail oriented, have superior verbal and written communication skills, strong organizational skills, are able to work independently and can maintain professionalism under pressure\n Preferred coding skills: Java (Expert), HLML (Intermediate)\n Other desired technical skills include: MySQL (Expert), JDBC (Intermediate), Data Modeling (Intermediate), Design (Expert), Developer (Expert), OO Design (Expert), OO Programming (Expert), Database Administration (intermediate), Distributed Systems Architecture (Expert) and Identity Access Management (Intermediate)\n Back End Engineer with IOS and Android experience highly desired\n\nThe pay range is the lowest to highest compensation we reasonably in good faith believe we would pay at posting for this role. We may ultimately pay more or less than this range. Employee pay is based on factors like relevant education, qualifications, certifications, experience, skills, seniority, location, performance, union contract and business needs. This range may be modified in the future.\n\nWe offer comprehensive benefits including medical/dental/vision insurance, HSA, FSA, 401(k), and life, disability & ADD insurance to eligible employees. Salaried personnel receive paid time off. Hourly employees are not eligible for paid time off unless required by law. Hourly employees on a Service Contract Act project are eligible for paid sick leave.\n\nNote: Pay is not considered compensation until it is earned, vested and determinable. The amount and availability of any compensation remains in Kforce's sole discretion unless and until paid and may be modified in its discretion consistent with the law.\n\nThis job is not eligible for bonuses, incentives or commissions.\n\nKforce is an Equal Opportunity/Affirmative Action Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, pregnancy, sexual orientation, gender identity, national origin, age, protected veteran status, or disability status.\n\nBy clicking “Apply Today” you agree to receive calls, AI-generated calls, text messages or emails from Kforce and its affiliates, and service providers. Note that if you choose to communicate with Kforce via text messaging the frequency may vary, and message and data rates may apply. Carriers are not liable for delayed or undelivered messages. You will always have the right to cease communicating via text by using key words such as STOP.",
+    "job_description_preview": "About the job\nResponsibilities\n\nKforce has an enterprise client seeking a Software Dev Engineer III in Sunnyvale, CA. Overview: We are looking for a SDE for a large, strategic cross-org multi-year pro..."
+  },
+  "output": {
+    "analysis_result": {
+      "technical_skills": [
+        "Java",
+        "Backend Development",
+        "iOS Development",
+        "Android Development",
+        "Distributed Systems Architecture",
+        "Data Modeling",
+        "Object-Oriented Design",
+        "Object-Oriented Programming",
+        "Database Administration",
+        "Identity Access Management",
+        "Software Development",
+        "End-to-End Development",
+        "Code Testing",
+        "Code Deployment",
+        "Automation",
+        "System Documentation",
+        "HTML",
+        "JDBC"
+      ],
+      "technologies_and_tools": [
+        "MySQL"
+      ],
+      "soft_skills": [
+        "Detail-oriented",
+        "Superior Verbal Communication",
+        "Superior Written Communication",
+        "Strong Organizational Skills",
+        "Ability to Work Independently",
+        "Maintain Professionalism Under Pressure"
+      ],
+      "certifications": [],
+      "other_requirements": [
+        "Previous experience (desired for faster ramp up)",
+        "Knowledgeable and deeply skilled in building and working on large distributed systems"
+      ]
+    },
+    "total_keywords_extracted": 27
+  }
+}

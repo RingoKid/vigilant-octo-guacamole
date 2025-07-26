@@ -1,21 +1,22 @@
-# Resume Optimizer with PDF Generation
+# Resume Optimizer with File Management
 
-An intelligent resume optimization tool that analyzes job descriptions, optimizes resumes, and generates professional PDF resumes with customizable templates.
+An intelligent resume optimization tool that analyzes job descriptions and optimizes resumes with automatic file saving and management capabilities.
 
 ## Features
 
 ### Core Functionality
 - **Job Description Analysis**: Extract keywords and requirements from job postings
 - **Resume Optimization**: Rewrite resume content to match job requirements
-- **PDF Resume Generation**: Create professional PDF resumes with custom HTML templates
-- **Template Customization**: Modify fonts, spacing, and styling to match your preferences
 - **Custom Keywords**: Use your own keywords for optimization
 - **Example Templates**: Built-in examples for testing
 
-### File Management
+### File Management (NEW!)
 - **Automatic Saving**: All analyses and optimizations are automatically saved
+- **Timestamped Files**: Unique filenames with timestamps and IDs
 - **Organized Storage**: Separate folders for different output types
 - **Web Interface**: View and manage saved files in the app
+- **CLI Tool**: Command-line interface for file management
+- **Metadata Tracking**: Complete history with generation details
 
 ## Quick Start
 
@@ -39,26 +40,7 @@ An intelligent resume optimization tool that analyzes job descriptions, optimize
    - Paste a job description to analyze keywords
    - Use extracted keywords or add custom ones
    - Optimize your resume automatically
-   - Generate professional PDF resumes
-   - Customize template styling and formatting
    - View saved files in the management section
-
-## PDF Resume Generation
-
-The application generates professional PDF resumes using customizable HTML templates:
-
-- **Template Customization**: Modify fonts (Garamond, Times New Roman), spacing, margins, and bullet styles
-- **Professional Formatting**: Clean, ATS-friendly layouts with proper typography
-- **Print Optimization**: CSS optimized for PDF generation and printing
-- **Real-time Preview**: See changes as you customize the template
-- **Multiple Formats**: Support for different resume styles and layouts
-
-### Template Features
-- Garamond font family for professional appearance
-- Customizable section spacing and bullet indentation
-- Square or circular bullet points
-- Flexible margin and padding controls
-- Print-ready CSS with proper page breaks
 
 ## File Management
 
@@ -93,8 +75,8 @@ The Streamlit app includes a "📁 Saved Files Management" section to:
 
 ## Documentation
 
-- **[FILE_MANAGEMENT.md](resume-optimizer/FILE_MANAGEMENT.md)**: Comprehensive file management documentation
-- **[API Documentation](resume-optimizer/src/)**: Source code and API details
+- **[FILE_MANAGEMENT.md](FILE_MANAGEMENT.md)**: Comprehensive file management documentation
+- **[API Documentation](src/)**: Source code and API details
 
 ## Project Structure
 
@@ -103,18 +85,17 @@ resume-optimizer/
 ├── app.py                     # Main Streamlit application
 ├── file_cli.py               # Command-line file management tool
 ├── requirements.txt          # Python dependencies
-├── outputs/                  # Generated files (PDFs, analyses)
+├── outputs/                  # Automatically generated files
 │   ├── job_analysis/        # Job description analyses
-│   ├── resume_optimization/ # Resume optimizations
-│   └── *.pdf               # Generated resume PDFs
+│   └── resume_optimization/ # Resume optimizations
 └── src/
     ├── chains.py            # LangChain chains
     ├── parsers.py           # Pydantic models
     ├── prompts.py           # LLM prompts
-    ├── resume_generator.py  # PDF generation utilities
+    ├── utils.py             # Utility functions
     ├── file_manager.py      # File management utilities
-    └── templates/
-        └── resume_template.html # Customizable HTML template
+    └── docs/
+        └── resume.md        # Sample resume template
 ```
 
 ## Benefits of File Management
@@ -145,12 +126,11 @@ The JSON format enables easy integration with:
 
 ## Future Enhancements
 
-- **PDF Templates**: Additional resume template styles and layouts
-- **Export Formats**: Multiple output formats (Word, LaTeX, etc.)
-- **Advanced Customization**: More granular control over styling and formatting
-- **Resume Analytics**: Track optimization effectiveness and keyword matching
-- **Cloud Integration**: Cloud storage and sharing capabilities
-- **Batch Processing**: Process multiple resumes simultaneously
+- Export to multiple formats (PDF, Word, etc.)
+- Advanced search and filtering
+- Analytics dashboard
+- Cloud storage integration
+- Batch processing capabilities
 
 ## License
 

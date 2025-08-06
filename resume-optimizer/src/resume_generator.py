@@ -90,6 +90,7 @@ class ResumeGenerator:
             # Skills
             SKILLS_LANGUAGES=static_info['skills_languages'],
             SKILLS_FRAMEWORKS=static_info['skills_frameworks'],
+            SKILLS_AI_ML=static_info['skills_ai_ml'],
             SKILLS_DATABASES=static_info['skills_databases']
         )
 
@@ -130,6 +131,7 @@ class ResumeGenerator:
             # Skills
             'skills_languages': 'C/C++, Java, Python, JavaScript, PHP, Dart, Bash',
             'skills_frameworks': 'Spring Boot, Django, Flask, Angular, Vue.js, Flutter, Docker, Jenkins, Git, Linux, CI/CD, RESTful APIs, Android Studio, Firebase, Postman, ASP.NET, JUnit, Mockito, AWS',
+            'skills_ai_ml': 'LangChain, OpenAI API, Hugging Face, Vector Databases, RAG (Retrieval Augmented Generation), Prompt Engineering',
             'skills_databases': 'MySQL, PostgreSQL, Oracle, MSSQL, Redis, MongoDB'
         }
 

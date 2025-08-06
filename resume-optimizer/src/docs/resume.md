@@ -45,6 +45,7 @@ _BS, Computer Science Dhaka, Bangladesh_
 ▪ **Languages:** C/C++, Java, Python, JavaScript, PHP, Dart, Bash
 ▪ **Frameworks/Tools:** Spring Boot, Django, Flask, Angular, Vue.js, Flutter, Docker, Jenkins, Git, Linux, CI/CD, RESTful
 APIs, Android Studio, Firebase, Postman, ASP.NET, JUnit, Mockito, AWS
+▪ **AI/ML Tools:** LangChain, OpenAI API, Hugging Face, Vector Databases, RAG (Retrieval Augmented Generation), Prompt Engineering
 ▪ **Databases:** MySQL, PostgreSQL, Oracle, MSSQL, Redis, MongoDB
 
 

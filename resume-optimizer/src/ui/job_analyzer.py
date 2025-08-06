@@ -52,10 +52,10 @@ def _render_keywords_usage_section():
             st.session_state['keywords_for_rewrite'] = keywords
             st.success("Keywords loaded for resume rewrite!")
 
-        # Only show keywords if they haven't been loaded for rewrite yet
-        if not st.session_state['keywords_for_rewrite']:
-            st.write("**Extracted Keywords:**")
-            st.json(st.session_state['analyzed_keywords'])
+        # # Only show keywords if they haven't been loaded for rewrite yet
+        # if not st.session_state['keywords_for_rewrite']:
+        #     st.write("**Extracted Keywords:**")
+        #     st.json(st.session_state['analyzed_keywords'])
 
 
 def get_keywords_for_rewrite():

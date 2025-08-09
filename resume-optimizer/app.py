@@ -36,7 +36,7 @@ def main():
     render_custom_keywords_section()
 
     # Example section
-    render_example_section()
+    # render_example_section()
 
     # Saved files management
     render_saved_files_section()

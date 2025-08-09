@@ -8,7 +8,7 @@ def initialize_app():
     """Initialize the Streamlit app with title and basic settings"""
     st.title("📄 Job Post Text Analyzer")
     st.info(
-        "Paste the text of a job posting below to analyze its content. No URL required.")
+        "Paste the text of a job posting below to analyze its content.")
 
 
 def initialize_all_session_state():

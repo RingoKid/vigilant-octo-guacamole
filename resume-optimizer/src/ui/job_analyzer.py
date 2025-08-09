@@ -27,7 +27,7 @@ def _analyze_job_description(job_description):
     with st.spinner("Analyzing job description..."):
         chain = get_analyzer_chain()
         result = chain.invoke({"job_description": job_description})
-        st.subheader("Analysis Result (JSON)")
+        st.subheader("Analysis Result")
         st.json(result)
         st.session_state['analyzed_keywords'] = result
 
@@ -46,8 +46,7 @@ def _render_keywords_usage_section():
         if st.button("Use These Keywords for Resume Rewrite"):
             # Flatten all keywords into a single list
             keywords = []
-            for key in ['technical_skills', 'technologies_and_tools', 'soft_skills',
-                        'certifications', 'other_requirements']:
+            for key in ['technical_skills', 'technologies_and_tools', 'soft_skills']:
                 keywords += st.session_state['analyzed_keywords'].get(key, [])
             st.session_state['keywords_for_rewrite'] = keywords
             st.success("Keywords loaded for resume rewrite!")

@@ -11,30 +11,14 @@ def render_saved_files_section():
     st.header("📁 Saved Files Management")
     st.info("View and manage previously generated files from both chains.")
 
-    # Initialize active tab in session state if not exists
-    if 'active_file_tab' not in st.session_state:
-        st.session_state.active_file_tab = 0
-
     # Create tabs for different file types
-    tab_names = ["📊 Job Analysis Files", "📝 Resume Optimization Files"]
+    tab1, tab2 = st.tabs(
+        ["📊 Job Analysis Files", "📝 Resume Optimization Files"])
 
-    # Use selectbox to control active tab
-    selected_tab = st.selectbox(
-        "Select Tab:",
-        options=[0, 1],
-        format_func=lambda x: tab_names[x],
-        index=st.session_state.active_file_tab,
-        key="file_tab_selector"
-    )
-
-    # Update session state when tab changes
-    if selected_tab != st.session_state.active_file_tab:
-        st.session_state.active_file_tab = selected_tab
-
-    # Render content based on selected tab
-    if st.session_state.active_file_tab == 0:
+    with tab1:
         _render_job_analysis_files()
-    else:
+
+    with tab2:
         _render_resume_optimization_files()
 
     _render_summary_statistics()
@@ -158,9 +142,6 @@ def _show_optimization_details(filename):
 def _generate_pdf_from_file(filename):
     """Generate PDF from saved optimization file"""
     try:
-        # Ensure we stay on the Resume Optimization tab
-        st.session_state.active_file_tab = 1
-
         file_data = load_saved_file("resume_optimization", filename)
         optimization_result = file_data["output"]["optimization_result"]
 
@@ -193,9 +174,6 @@ def _generate_pdf_from_file(filename):
 def _load_and_use_optimization(filename):
     """Load optimization result into current session"""
     try:
-        # Ensure we stay on the Resume Optimization tab
-        st.session_state.active_file_tab = 1
-
         file_data = load_saved_file("resume_optimization", filename)
         optimization_result = file_data["output"]["optimization_result"]
 

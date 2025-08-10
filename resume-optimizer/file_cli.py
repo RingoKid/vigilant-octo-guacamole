@@ -104,8 +104,8 @@ def show_stats():
 
     if total > 0:
         print(f"\nFile Locations:")
-        print(f"  Job Analysis: /workspaces/agents/resume-optimizer/outputs/job_analysis/")
-        print(f"  Resume Optimization: /workspaces/agents/resume-optimizer/outputs/resume_optimization/")
+        print(f"  Job Analysis: resume-optimizer/outputs/job_analysis/")
+        print(f"  Resume Optimization: resume-optimizer/outputs/resume_optimization/")
 
 
 def main():

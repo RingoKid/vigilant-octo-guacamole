@@ -46,7 +46,7 @@ def _process_resume_with_keywords(keywords_list, source_type):
     with st.spinner("Processing resume with keywords..."):
         try:
             rewriter_chain = get_rewriter_chain()
-            with open("/workspaces/agents/resume-optimizer/src/docs/resume.md", "r", encoding="utf-8") as file:
+            with open("resume-optimizer/src/docs/resume.md", "r", encoding="utf-8") as file:
                 resume_text = file.read()
 
             result = rewriter_chain.invoke({
@@ -82,7 +82,7 @@ def _run_example_optimization():
     with st.spinner("Processing resume with example keywords..."):
         try:
             rewriter_chain = get_rewriter_chain()
-            with open("/workspaces/agents/resume-optimizer/src/docs/resume.md", "r", encoding="utf-8") as file:
+            with open("resume-optimizer/src/docs/resume.md", "r", encoding="utf-8") as file:
                 resume_text = file.read()
 
             job_keywords = JobDescriptionKeywords(

@@ -147,8 +147,8 @@ Resume Optimization Files: 8
 Total Files: 13
 
 File Locations:
-  Job Analysis: /workspaces/agents/resume-optimizer/outputs/job_analysis/
-  Resume Optimization: /workspaces/agents/resume-optimizer/outputs/resume_optimization/
+  Job Analysis: resume-optimizer/outputs/job_analysis/
+  Resume Optimization: resume-optimizer/outputs/resume_optimization/
 ```
 
 ## Keywords Source Tracking

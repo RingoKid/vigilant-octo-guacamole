@@ -26,7 +26,7 @@ class ResumeGenerator:
     def generate_updated_resume(self, optimization_result, original_resume_path=None):
         """Generate updated resume HTML from optimization result"""
         if original_resume_path is None:
-            original_resume_path = "/workspaces/agents/resume-optimizer/src/docs/resume.md"
+            original_resume_path = "resume-optimizer/src/docs/resume.md"
 
         # Read original resume to extract static data
         with open(original_resume_path, 'r', encoding='utf-8') as file:
@@ -193,7 +193,7 @@ class ResumeGenerator:
         """Create PDF from HTML resume using WeasyPrint"""
         if output_path is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_path = f"/workspaces/agents/resume-optimizer/outputs/resume_pdf_{timestamp}.pdf"
+            output_path = f"resume-optimizer/outputs/resume_pdf_{timestamp}.pdf"
 
         # Ensure output directory exists
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -244,7 +244,7 @@ def save_resume_html(resume_content, filename=None):
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"updated_resume_{timestamp}.html"
 
-    output_dir = "/workspaces/agents/resume-optimizer/outputs/resumes"
+    output_dir = "resume-optimizer/outputs/resumes"
     os.makedirs(output_dir, exist_ok=True)
 
     filepath = os.path.join(output_dir, filename)
@@ -260,7 +260,7 @@ def save_resume_markdown(resume_content, filename=None):
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"updated_resume_{timestamp}.md"
 
-    output_dir = "/workspaces/agents/resume-optimizer/outputs/resumes"
+    output_dir = "resume-optimizer/outputs/resumes"
     os.makedirs(output_dir, exist_ok=True)
 
     filepath = os.path.join(output_dir, filename)

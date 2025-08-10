@@ -22,7 +22,7 @@ def save_job_analysis_result(job_description: str, analysis_result: Dict[str, An
 
     # Create filename with timestamp and unique ID
     filename = f"job_analysis_{timestamp.strftime('%Y%m%d_%H%M%S')}_{unique_id}.json"
-    file_path = f"/workspaces/agents/resume-optimizer/outputs/job_analysis/{filename}"
+    file_path = f"resume-optimizer/outputs/job_analysis/{filename}"
 
     # Prepare data to save
     data_to_save = {
@@ -70,7 +70,7 @@ def save_resume_optimization_result(keywords: List[str], original_resume: str, o
 
     # Create filename with timestamp and unique ID
     filename = f"resume_optimization_{timestamp.strftime('%Y%m%d_%H%M%S')}_{unique_id}.json"
-    file_path = f"/workspaces/agents/resume-optimizer/outputs/resume_optimization/{filename}"
+    file_path = f"resume-optimizer/outputs/resume_optimization/{filename}"
 
     # Prepare data to save
     data_to_save = {
@@ -111,7 +111,7 @@ def list_saved_files(output_type: str = "all") -> Dict[str, List[str]]:
     Returns:
         Dict with file lists for each type
     """
-    base_path = "/workspaces/agents/resume-optimizer/outputs"
+    base_path = "resume-optimizer/outputs"
 
     result = {}
 
@@ -145,7 +145,7 @@ def load_saved_file(file_type: str, filename: str) -> Dict[str, Any]:
     Returns:
         Dict containing the saved data
     """
-    base_path = "/workspaces/agents/resume-optimizer/outputs"
+    base_path = "resume-optimizer/outputs"
     file_path = f"{base_path}/{file_type}/{filename}"
 
     if not os.path.exists(file_path):

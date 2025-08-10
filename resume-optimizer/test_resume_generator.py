@@ -51,7 +51,7 @@ def test_resume_generation():
 
     # Test diff generation
     try:
-        with open("/workspaces/agents/resume-optimizer/src/docs/resume.md", "r") as f:
+        with open("resume-optimizer/src/docs/resume.md", "r") as f:
             original_resume = f.read()
 
         diff_html = generator.get_diff_html(original_resume, updated_resume)

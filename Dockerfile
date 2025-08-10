@@ -5,6 +5,13 @@ FROM python:3.12-slim
 # Set the working directory in the container
 WORKDIR /app
 
+# Update package lists and install system libraries required by weasyprint
+RUN apt-get update && apt-get install -y \
+    libgobject-2.0-0 \
+    libpango-1.0-0 \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
 # Copy the requirements file into the container at /app
 COPY requirements.txt .
 

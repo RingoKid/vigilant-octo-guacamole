@@ -32,7 +32,7 @@ def initialize_all_session_state():
 
 def get_resume_path():
     """Get the path to the resume file"""
-    return "/workspaces/agents/resume-optimizer/src/docs/resume.md"
+    return "resume-optimizer/src/docs/resume.md"
 
 
 def load_resume_text():

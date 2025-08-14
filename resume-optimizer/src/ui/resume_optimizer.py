@@ -5,31 +5,32 @@ import streamlit as st
 from src.chains import get_rewriter_chain
 from src.file_manager import save_resume_optimization_result
 from src.parsers import JobDescriptionKeywords
+from src.resume_generator import ResumeGenerator
 
 
 def render_resume_optimizer(keywords_for_rewrite):
     """Render the resume optimization section"""
     if keywords_for_rewrite:
-        if st.button("Rewrite Resume with Analyzed Keywords"):
+        if st.button("🚀 Generate Optimized Resume & PDF"):
             _process_resume_with_keywords(keywords_for_rewrite, "job_analysis")
 
+    # Show download button if PDF is available
+    if 'generated_pdf_path' in st.session_state and st.session_state['generated_pdf_path']:
+        st.success("✅ Resume and PDF generated successfully!")
 
-def render_custom_keywords_section():
-    """Render the custom keywords section"""
-    st.subheader("🔧 Custom Keywords")
-    custom_keywords = st.text_area(
-        "Enter custom keywords (comma-separated):",
-        value="Python, AWS, Docker, Kubernetes, CI/CD, REST APIs, Machine Learning",
-        height=100
-    )
+        try:
+            with open(st.session_state['generated_pdf_path'], "rb") as pdf_file:
+                pdf_data = pdf_file.read()
 
-    if st.button("Rewrite with Custom Keywords"):
-        if custom_keywords:
-            keywords_list = [kw.strip()
-                             for kw in custom_keywords.split(",") if kw.strip()]
-            _process_resume_with_keywords(keywords_list, "custom")
-        else:
-            st.warning("Please enter some keywords first.")
+            st.download_button(
+                label="📥 Download Resume PDF",
+                data=pdf_data,
+                file_name=f"optimized_resume.pdf",
+                mime="application/pdf",
+                key="download_optimized_pdf"
+            )
+        except Exception as e:
+            st.error(f"Error preparing PDF download: {e}")
 
 
 def render_example_section():
@@ -37,14 +38,33 @@ def render_example_section():
     st.header("🧑‍💻 Example: Resume Rewriter with Example Keywords")
     st.info("Use the example resume and keywords to see how the rewriter chain works.")
 
-    if st.button("Run Resume Rewriter Example"):
+    if st.button("🚀 Run Resume Rewriter Example & Generate PDF"):
         _run_example_optimization()
+
+    # Show download button if PDF is available from example
+    if 'example_pdf_path' in st.session_state and st.session_state['example_pdf_path']:
+        st.success("✅ Example resume and PDF generated successfully!")
+
+        try:
+            with open(st.session_state['example_pdf_path'], "rb") as pdf_file:
+                pdf_data = pdf_file.read()
+
+            st.download_button(
+                label="📥 Download Example Resume PDF",
+                data=pdf_data,
+                file_name=f"example_resume.pdf",
+                mime="application/pdf",
+                key="download_example_pdf"
+            )
+        except Exception as e:
+            st.error(f"Error preparing example PDF download: {e}")
 
 
 def _process_resume_with_keywords(keywords_list, source_type):
-    """Process resume with given keywords"""
-    with st.spinner("Processing resume with keywords..."):
+    """Process resume with given keywords and generate PDF"""
+    with st.spinner("Generating optimized resume and PDF..."):
         try:
+            # Step 1: Generate optimized resume content
             rewriter_chain = get_rewriter_chain()
             with open("resume-optimizer/src/docs/resume.md", "r", encoding="utf-8") as file:
                 resume_text = file.read()
@@ -62,13 +82,23 @@ def _process_resume_with_keywords(keywords_list, source_type):
             # Store the result for resume generation
             st.session_state['last_optimization_result'] = result
 
+            # Step 2: Generate HTML and PDF
+            resume_generator = ResumeGenerator()
+            updated_resume_html = resume_generator.generate_updated_resume(
+                result)
+            pdf_path = resume_generator.create_pdf(updated_resume_html)
+
+            # Store PDF path for download
+            st.session_state['generated_pdf_path'] = pdf_path
+
             # Save the optimization result
             try:
                 saved_file_path = save_resume_optimization_result(
                     keywords_list, resume_text, result, source_type
                 )
                 st.success(
-                    f"✅ Optimization saved to: {saved_file_path.split('/')[-1]}")
+                    f"✅ Optimization and PDF saved! JSON: {saved_file_path.split('/')[-1]}")
+                st.success(f"✅ PDF saved to: {pdf_path.split('/')[-1]}")
             except Exception as e:
                 st.warning(
                     f"Optimization completed but couldn't save file: {e}")
@@ -78,9 +108,10 @@ def _process_resume_with_keywords(keywords_list, source_type):
 
 
 def _run_example_optimization():
-    """Run the example optimization with predefined keywords"""
-    with st.spinner("Processing resume with example keywords..."):
+    """Run the example optimization with predefined keywords and generate PDF"""
+    with st.spinner("Generating example resume and PDF..."):
         try:
+            # Step 1: Generate optimized resume content
             rewriter_chain = get_rewriter_chain()
             with open("resume-optimizer/src/docs/resume.md", "r", encoding="utf-8") as file:
                 resume_text = file.read()
@@ -115,13 +146,23 @@ def _run_example_optimization():
             # Store the result for resume generation
             st.session_state['last_optimization_result'] = result
 
+            # Step 2: Generate HTML and PDF
+            resume_generator = ResumeGenerator()
+            updated_resume_html = resume_generator.generate_updated_resume(
+                result)
+            pdf_path = resume_generator.create_pdf(updated_resume_html)
+
+            # Store PDF path for download
+            st.session_state['example_pdf_path'] = pdf_path
+
             # Save the optimization result
             try:
                 saved_file_path = save_resume_optimization_result(
                     all_keywords, resume_text, result, "example"
                 )
                 st.success(
-                    f"✅ Example optimization saved to: {saved_file_path.split('/')[-1]}")
+                    f"✅ Example optimization and PDF saved! JSON: {saved_file_path.split('/')[-1]}")
+                st.success(f"✅ PDF saved to: {pdf_path.split('/')[-1]}")
             except Exception as e:
                 st.warning(f"Example completed but couldn't save file: {e}")
 

@@ -8,8 +8,7 @@ import streamlit as st
 
 # Import UI modules
 from src.ui.job_analyzer import render_job_analyzer, get_keywords_for_rewrite
-from src.ui.resume_optimizer import render_resume_optimizer, render_custom_keywords_section, render_example_section
-from src.ui.resume_generation import render_resume_generation_section
+from src.ui.resume_optimizer import render_resume_optimizer, render_example_section
 from src.ui.file_management import render_saved_files_section
 from src.app_utils import initialize_app, initialize_all_session_state
 
@@ -25,10 +24,17 @@ def main():
     # Add helpful instructions
     st.markdown("""
     ### 🚀 Quick Start (Recommended)
-    Use the **"Analyze & Optimize Resume (All-in-One)"** button below for a complete automated workflow.
+    1. **Analyze Job Description**: Paste a job description and click "**Analyze & Optimize Resume (All-in-One)**"
+    2. **Download PDF**: Click the download button that appears to get your optimized resume PDF
+    
+    #### What this does in one click:
+    - ✅ Analyzes the job description for keywords
+    - ✅ Optimizes your resume with relevant keywords  
+    - ✅ Generates a professional PDF resume
+    - ✅ Saves everything for future reference
     
     ### 🔧 Advanced Options
-    Use the individual steps if you need more control over the process.
+    Use the individual sections below for more control over the process.
     """)
 
     # Render main sections
@@ -40,15 +46,10 @@ def main():
     # Only show these sections if not using streamlined workflow
     if keywords_for_rewrite or st.session_state.get('analyzed_keywords'):
         st.markdown("---")
-        st.markdown("### 🔧 Individual Steps (Advanced)")
+        st.markdown("### 🔧 Resume Optimization (Advanced)")
+        st.info(
+            "💡 **Tip**: If you used the All-in-One button above, your PDF is already ready for download!")
         render_resume_optimizer(keywords_for_rewrite)
-
-        # Resume generation section
-        render_resume_generation_section()
-
-    # Custom keywords section
-    st.markdown("---")
-    render_custom_keywords_section()
 
     # Example section
     # render_example_section()

@@ -30,6 +30,14 @@ def initialize_all_session_state():
     if 'updated_resume_markdown' not in st.session_state:
         st.session_state['updated_resume_markdown'] = None
 
+    # PDF download session state
+    if 'generated_pdf_path' not in st.session_state:
+        st.session_state['generated_pdf_path'] = None
+    if 'example_pdf_path' not in st.session_state:
+        st.session_state['example_pdf_path'] = None
+    if 'streamlined_pdf_path' not in st.session_state:
+        st.session_state['streamlined_pdf_path'] = None
+
 
 def get_resume_path():
     """Get the path to the resume file"""

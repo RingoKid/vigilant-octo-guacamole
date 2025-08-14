@@ -90,11 +90,32 @@ def _streamlined_workflow(job_description):
         # Step 4: Generate updated resume PDF
         with st.spinner("Step 4/4: Generating updated resume PDF..."):
             resume_generator = ResumeGenerator()
-            resume_generator.generate_updated_resume(optimization_result)
+            updated_resume_html = resume_generator.generate_updated_resume(
+                optimization_result)
+            pdf_path = resume_generator.create_pdf(updated_resume_html)
+
+            # Store PDF path for download
+            st.session_state['streamlined_pdf_path'] = pdf_path
+            st.success(f"✅ PDF generated: {pdf_path.split('/')[-1]}")
 
         # Display results
         st.success(
-            "🎉 **Complete! Your resume has been optimized and generated.**")
+            "🎉 **Complete! Your resume has been optimized and PDF generated.**")
+
+        # Show download button
+        try:
+            with open(pdf_path, "rb") as pdf_file:
+                pdf_data = pdf_file.read()
+
+            st.download_button(
+                label="📥 Download Optimized Resume PDF",
+                data=pdf_data,
+                file_name=f"optimized_resume_streamlined.pdf",
+                mime="application/pdf",
+                key="download_streamlined_pdf"
+            )
+        except Exception as e:
+            st.error(f"Error preparing PDF download: {e}")
 
         # Show summary of what was done
         with st.expander("📊 View Optimization Summary"):

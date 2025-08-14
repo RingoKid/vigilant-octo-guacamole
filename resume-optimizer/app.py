@@ -21,22 +21,6 @@ def main():
     # Initialize all session state variables
     initialize_all_session_state()
 
-    # Add helpful instructions
-    st.markdown("""
-    ### 🚀 Quick Start (Recommended)
-    1. **Analyze Job Description**: Paste a job description and click "**Analyze & Optimize Resume (All-in-One)**"
-    2. **Download PDF**: Click the download button that appears to get your optimized resume PDF
-    
-    #### What this does in one click:
-    - ✅ Analyzes the job description for keywords
-    - ✅ Optimizes your resume with relevant keywords  
-    - ✅ Generates a professional PDF resume
-    - ✅ Saves everything for future reference
-    
-    ### 🔧 Advanced Options
-    Use the individual sections below for more control over the process.
-    """)
-
     # Render main sections
     render_job_analyzer()
 
@@ -47,8 +31,6 @@ def main():
     if keywords_for_rewrite or st.session_state.get('analyzed_keywords'):
         st.markdown("---")
         st.markdown("### 🔧 Resume Optimization (Advanced)")
-        st.info(
-            "💡 **Tip**: If you used the All-in-One button above, your PDF is already ready for download!")
         render_resume_optimizer(keywords_for_rewrite)
 
     # Example section

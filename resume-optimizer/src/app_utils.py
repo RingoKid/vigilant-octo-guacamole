@@ -7,9 +7,6 @@ import streamlit as st
 def initialize_app():
     """Initialize the Streamlit app with title and basic settings"""
     st.title("📄 AI Resume Optimizer")
-    st.info(
-        "🚀 **One-Click Solution**: Paste a job description and get an optimized resume instantly! "
-        "Or use advanced options for step-by-step control.")
 
 
 def initialize_all_session_state():

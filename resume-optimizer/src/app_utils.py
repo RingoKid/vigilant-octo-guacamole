@@ -6,9 +6,7 @@ import streamlit as st
 
 def initialize_app():
     """Initialize the Streamlit app with title and basic settings"""
-    st.title("📄 Job Post Text Analyzer")
-    st.info(
-        "Paste the text of a job posting below to analyze its content.")
+    st.title("📄 AI Resume Optimizer")
 
 
 def initialize_all_session_state():
@@ -28,6 +26,14 @@ def initialize_all_session_state():
         st.session_state['updated_resume_html'] = None
     if 'updated_resume_markdown' not in st.session_state:
         st.session_state['updated_resume_markdown'] = None
+
+    # PDF download session state
+    if 'generated_pdf_path' not in st.session_state:
+        st.session_state['generated_pdf_path'] = None
+    if 'example_pdf_path' not in st.session_state:
+        st.session_state['example_pdf_path'] = None
+    if 'streamlined_pdf_path' not in st.session_state:
+        st.session_state['streamlined_pdf_path'] = None
 
 
 def get_resume_path():

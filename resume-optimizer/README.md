@@ -7,7 +7,6 @@ An intelligent resume optimization tool that analyzes job descriptions and optim
 ### Core Functionality
 - **Job Description Analysis**: Extract keywords and requirements from job postings
 - **Resume Optimization**: Rewrite resume content to match job requirements
-- **Custom Keywords**: Use your own keywords for optimization
 - **Example Templates**: Built-in examples for testing
 
 ### File Management (NEW!)

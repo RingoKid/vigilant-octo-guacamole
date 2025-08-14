@@ -9,7 +9,6 @@ An intelligent resume optimization tool that analyzes job descriptions, optimize
 - **Resume Optimization**: Rewrite resume content to match job requirements
 - **PDF Resume Generation**: Create professional PDF resumes with custom HTML templates
 - **Template Customization**: Modify fonts, spacing, and styling to match your preferences
-- **Custom Keywords**: Use your own keywords for optimization
 - **Example Templates**: Built-in examples for testing
 
 ### File Management

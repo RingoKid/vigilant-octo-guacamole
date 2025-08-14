@@ -51,7 +51,7 @@ def save_job_analysis_result(job_description: str, analysis_result: Dict[str, An
     return file_path
 
 
-def save_resume_optimization_result(keywords: List[str], original_resume: str, optimization_result: Dict[str, Any], source_type: str = "custom") -> str:
+def save_resume_optimization_result(keywords: List[str], original_resume: str, optimization_result: Dict[str, Any], source_type: str = "job_analysis") -> str:
     """
     Save resume optimization result to a JSON file with metadata.
 
@@ -59,7 +59,7 @@ def save_resume_optimization_result(keywords: List[str], original_resume: str, o
         keywords: List of keywords used for optimization
         original_resume: The original resume text
         optimization_result: The optimization result from the rewriter chain
-        source_type: Type of keywords source ("job_analysis", "custom", "example")
+        source_type: Type of keywords source ("job_analysis", "example")
 
     Returns:
         str: The file path where the result was saved

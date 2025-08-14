@@ -71,7 +71,7 @@ Example: `job_analysis_20250726_143052_a1b2c3d4.json`
     "timestamp": "2025-07-26T14:35:22.654321",
     "generated_at": "2025-07-26 14:35:22",
     "filename": "resume_optimization_20250726_143522_b2c3d4e5.json",
-    "keywords_source": "job_analysis" // or "custom" or "example"
+    "keywords_source": "job_analysis" // or "example"
   },
   "input": {
     "keywords_used": ["Python", "AWS", "Docker", ...],
@@ -156,7 +156,6 @@ File Locations:
 Resume optimization files track the source of keywords used:
 
 - **`job_analysis`**: Keywords extracted from a job description analysis
-- **`custom`**: Manually entered custom keywords
 - **`example`**: Keywords from the built-in example
 
 This helps you understand which optimization approach worked best for different scenarios.

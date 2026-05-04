@@ -6,7 +6,7 @@
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         // This feature installs Node.js (via nvm), yarn, and pnpm.
-        "ghcr.io/devcontainers/features/node:1": {
+        "ghcr.io/devcontainers/features/node:2": {
             "version": "22" // Installs Node.js v22 (latest LTS, which is >= 18)
         }
     },
